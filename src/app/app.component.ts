@@ -1,10 +1,29 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {MatDrawer} from '@angular/material';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root[class="root"]',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'ng230120';
+  public title = 'apo-title';
+
+  public drawer!: MatDrawer;
+
+  isSidebarOpen = false;
+
+  constructor() {
+  }
+
+  openSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    console.log('click', this.isSidebarOpen);
+  }
+  public setSidenav(drawer: MatDrawer) {
+    this.drawer = drawer;
+    // Promise.resolve().then( () => this.drawer = drawer);
+  }
+
+
 }
